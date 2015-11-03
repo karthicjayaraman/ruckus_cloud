@@ -1,0 +1,52 @@
+<div id="device_container">
+  <div class="main-section-content foundation-row row">
+    <div class="section-header-content row collapse">
+      <div class="section-header medium-6 columns">
+        <h1>
+          <label> <span id="reports_net_summary_header">Configured Devices</span> </label>
+        </h1>
+      </div>
+      <div class="medium-6 columns">
+        <div class="float-button-container">
+          <div class="button_cluster"> <a class="button" href="#">Add Devices</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+    <div class="section-left-content columns">
+      <div class="panel_wrapper">
+        <div class="panel table rounded white no_pad">
+          <div class="title_heading">Configured Devices</div>
+          <div class="table_wrapper">
+            <table class="data responsive">
+              <thead>
+                <tr>
+                  <th>IP Address</th>
+                  <th>Model</th>
+                  <th>Serial</th>
+                  <th>Version</th>
+                  <th>ControlPlaneVersion</th>
+                  <th>Syslog</th>
+                  <th class="actions">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="d in scg_device_list">
+                  <td class="scgip">{{d.SCGIP}}</td>
+                  <td class="model">{{d.Model}}</td>
+                  <td class="serial">{{d.SerialNumber}}</td>
+		  <td class="version">{{d.SCGVersion}}</td>
+                  <td class="cpversion">{{d.ControlPlaneSoftwareVersion}}</td>
+                 
+                  <td class="type"><a class="icosolo icon_settings" href="#"></a></td>
+                  <td class="actions"><a class="icosolo icon_edit" href="#"></a> <a class="icosolo icon_settings" href="#"></a> <a class="icosolo icon_delete delete" href="#"></a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

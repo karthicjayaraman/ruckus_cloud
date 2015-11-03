@@ -1,0 +1,123 @@
+{
+    "zoneap": {
+        "compare": ">=",
+        "snmp": "snmp",
+        "enabled": "chkapZone",
+        "json": "json",
+        "limit": "2",
+        "ssh": "ssh"
+    },
+    "snmp3": {
+        "username": "admin",
+        "password": "asm",
+        "enabled": "snmpv3",
+        "method": "MD5"
+    },
+    "cpclients": {
+        "compare": ">=",
+        "snmp": "snmp",
+        "enabled": "chknoclientcp",
+        "json": "json",
+        "limit": "10",
+        "ssh": "ssh"
+    },
+    "ip": "192.168.2.160",
+    "cpap": {
+        "compare": ">=",
+        "snmp": "snmp",
+        "enabled": "chkapcp",
+        "json": "json",
+        "limit": "5",
+        "ssh": "ssh"
+    },
+    "dpuptime": {
+        "compare": ">=",
+        "snmp": "snmp",
+        "enabled": "chkuptimedp",
+        "json": "json",
+        "limit": "600",
+        "ssh": "ssh"
+    },
+    "dptunnel": {
+        "compare": ">=",
+        "snmp": "snmp",
+        "enabled": "chknotunneldp",
+        "json": "json",
+        "limit": "20",
+        "ssh": "ssh"
+    },
+    "snmp2": {
+        "enabled": "snmpv2",
+        "key": "public"
+    },
+    "zonetxbytes": {
+        "compare": ">=",
+        "snmp": "snmp",
+        "enabled": "chkTxtZone",
+        "json": "json",
+        "limit": "123",
+        "ssh": "ssh"
+    },
+    "zonewlan": {
+        "compare": ">=",
+        "snmp": "snmp",
+        "enabled": "chkWlanZone",
+        "json": "json",
+        "limit": "10",
+        "ssh": "ssh"
+    },
+    "cpmemory": {
+        "compare": ">=",
+        "snmp": "snmp",
+        "enabled": "chkmemcp",
+        "json": "json",
+        "limit": "60",
+        "ssh": "ssh"
+    },
+    "cpuptime": {
+        "compare": ">=",
+        "snmp": "snmp",
+        "enabled": "chkuptimecp",
+        "json": "json",
+        "limit": "600",
+        "ssh": "ssh"
+    },
+    "apclients": {
+        "compare": "30",
+        "snmp": "snmp",
+        "enabled": "chknoclient",
+        "json": "json",
+        "limit": ">=",
+        "ssh": "ssh"
+    },
+    "connectedap": {
+        "compare": "10",
+        "snmp": "snmp",
+        "enabled": "chkap",
+        "json": "json",
+        "limit": ">=",
+        "ssh": "ssh"
+    },
+    "zoneclient": {
+        "compare": ">=",
+        "snmp": "snmp",
+        "enabled": "chknoclientZone",
+        "json": "json",
+        "limit": "123",
+        "ssh": "ssh"
+    },
+    "zonerxbytes": {
+        "compare": ">=",
+        "snmp": "snmp",
+        "enabled": "chkRxtZone",
+        "json": "json",
+        "limit": "123",
+        "ssh": "ssh"
+    },
+    "scg": {
+        "username": "admin",
+        "enable": "53616c7465645f5fe99e3d7eaf69852d24572448ea29d869",
+        "password": "53616c7465645f5f029544549ecfa453869eb3d049588c62",
+        "enabled": "serial"
+    }
+}

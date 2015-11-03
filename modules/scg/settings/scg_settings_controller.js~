@@ -1,0 +1,98 @@
+window[appName].controller('scg_settings_controller',function($scope,$state,$http,$rootScope,$window){
+	
+	$scope.innerAccordion = {};
+	
+	$scope.innerAccordion.activeSection = 'email';
+	
+	$scope.navigateAccordion = function(sectionName) {
+		
+		$scope.innerAccordion.activeSection = sectionName;
+		
+	}
+function HttpRequest(method,action, URL, parameter) {
+		
+		$rootScope.showLoader = true;
+		
+        var $promise = '';
+        if(method==="post") {
+            $promise = $http.post(URL, parameter);
+        } else {
+            $promise = $http.get(URL, parameter);
+        }
+        $promise.then(function (response) {
+            var result = angular.fromJson(response.data);
+            processTheData(action, result);
+			
+			$rootScope.showLoader = false;
+			
+        });
+    };
+
+function processTheData(action, response) {
+	
+switch (action) {
+
+case 'get_email_setting':
+
+$scope.scg_email_setting = response;
+
+break;
+
+case 'get_swatch_config':
+
+$scope.scg_swatch_config = response;
+
+break;
+
+case 'get_event_config':
+
+$scope.scg_event_config = response;
+
+break;
+
+case 'get_log_alert_config':
+
+$scope.scg_email_setting = response;
+
+break;
+
+case 'get_system_alert':
+
+$scope.scg_system_alert = response;
+
+break;
+
+case 'get_ftp_setting':
+
+$scope.scg_ftp_setting = response;
+
+break;
+
+case 'get_user_mib':
+
+$scope.scg_user_mib = response;
+
+break;
+
+}
+
+}
+
+HttpRequest('get','get_email_setting',window.flaskURL+'scg/get_email_setting',''); 
+
+HttpRequest('get','get_swatch_config',window.flaskURL+'scg/get_swatch_config',''); 
+
+HttpRequest('get','get_event_config',window.flaskURL+'scg/get_event_config',''); 
+
+HttpRequest('get','get_log_alert_config',window.flaskURL+'scg/get_log_alert_config',''); 
+
+HttpRequest('get','get_system_alert',window.flaskURL+'scg/get_system_alert',''); 
+
+HttpRequest('get','get_ftp_setting',window.flaskURL+'scg/get_ftp_setting',''); 
+
+HttpRequest('get','get_user_mib',window.flaskURL+'scg/get_user_mib',''); 
+
+
+
+
+});

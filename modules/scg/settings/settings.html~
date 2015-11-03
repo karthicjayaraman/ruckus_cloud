@@ -1,0 +1,402 @@
+<div id="device_container">
+  <div class="main-section-content foundation-row row">
+    <div class="section-header-content row collapse">
+      <div class="section-header medium-6 columns">
+        <h1>
+          <label> <span id="reports_net_summary_header">Settings</span> </label>
+        </h1>
+      </div>
+    </div>
+    <div id="accordion-container" class="accordion-container">
+      <div id="accordion-section-1" class="accordion-section section-details-content" ng-class="{selected: innerAccordion.activeSection == 'email'}">
+        <div class="accordion-title star AccMenuTitleColor" ng-click="navigateAccordion('email')">
+          <div class="section-title">
+            <label> <span id="conf_vpn_controller">Email</span> </label>
+          </div>
+          <span id="conf_vpn_acc_arrow_1" class="accordion-arrow"></span> </div>
+      </div>
+      <div id="accordion-section-content-1" class="accordion-section-content" jg-slide-scroll="" jg-slide="innerAccordion.activeSection == 'email'">
+        <div class="row">
+          <div class="section-left-content large-6 columns">
+            <div class="panel_wrapper">
+              <div class="panel table rounded white no_pad">
+                <div class="title_heading"> Email Setting</div>
+                <div class="table_wrapper">
+                  <table class="data responsive">
+                    <thead>
+                      <tr>
+                        <th>Gateway</th>
+                        <th>SSL/TLS Port</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="name">10.9.160.40</td>
+                        <td class="location">NULL</td>
+                        <td class="status">NULL</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="section-left-content large-6 columns">
+            <div class="forms">
+              <h4>Email Test</h4>
+              <div class="inputs cf">
+                <div class="small-9 medium-10 columns no-pad">
+                  <input class="addon" type="text">
+                </div>
+                <div class="small-3 medium-2 columns no-pad"> <a class="addon button">Send</a> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="section-left-content large-6 columns">
+            <div class="panel_wrapper">
+              <div class="panel table rounded white no_pad">
+                <div class="title_heading">Receivers Email Setting</div>
+                <div class="table_wrapper">
+                  <table class="data responsive">
+                    <thead>
+                      <tr>
+                        <th>Gateway</th>
+                        <th>SSL/TLS Port</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="name">10.9.160.40</td>
+                        <td class="location">NULL</td>
+                        <td class="status">NULL</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <br />
+              <div class="button-container"> <a class="button" href="#">Add Receiver</a> </div>
+            </div>
+          </div>
+          <div class="section-left-content large-6 columns">
+            <div class="panel_wrapper">
+              <div class="panel table rounded white no_pad">
+                <div class="title_heading"> Sender Email Setting</div>
+                <div class="table_wrapper">
+                  <table class="data responsive">
+                    <thead>
+                      <tr>
+                        <th>Gateway</th>
+                        <th>SSL/TLS Port</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="name">10.9.160.40</td>
+                        <td class="location">NULL</td>
+                        <td class="status">NULL</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="accordion-section-2" class="accordion-section section-details-content" ng-class="{selected: innerAccordion.activeSection == 'ftp'}">
+        <div class="accordion-title star AccMenuTitleColor" ng-click="navigateAccordion('ftp')">
+          <div class="section-title">
+            <label> <span id="conf_vpn_controller">FTP/TFTP</span> </label>
+          </div>
+          <span id="conf_vpn_acc_arrow_1" class="accordion-arrow"></span> </div>
+      </div>
+      <div id="accordion-section-content-1" class="accordion-section-content" jg-slide-scroll="" jg-slide="innerAccordion.activeSection == 'ftp'">
+        <div class="row">
+          <div class="section-left-content large-6 columns">
+            <div class="panel_wrapper">
+              <div class="panel table rounded white no_pad">
+                <div class="title_heading"> Sender Email Setting</div>
+                <div class="table_wrapper">
+                  <table class="data responsive">
+                    <thead>
+                      <tr>
+                        <th>Services</th>
+                        <th>Option (Start/Stop/Restart)</th>
+                        <th>Path</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="name">10.9.160.40</td>
+                        <td class="location">NULL</td>
+                        <td class="status">NULL</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="section-left-content large-6 columns">
+            <div class="panel_wrapper">
+              <div class="panel table rounded white no_pad">
+                <div class="title_heading">Path Containing Files</div>
+                <div class="table_wrapper">
+                  <table class="data responsive">
+                    <thead>
+                      <tr>
+                        <th>File Name</th>
+                        <th>File Size (Bytes)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="name">10.9.160.40</td>
+                        <td class="location">NULL</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+	<!-- Email setting ends here-->
+	<!-- Swatch setting starts here-->
+      <div id="accordion-section-4" class="accordion-section section-details-content" ng-class="{selected: innerAccordion.activeSection == 'swatch'}">
+        <div class="accordion-title star AccMenuTitleColor" ng-click="navigateAccordion('swatch')">
+          <div class="section-title">
+            <label> <span id="conf_vpn_controller">Swatch configuration</span> </label>
+          </div>
+          <span id="conf_vpn_acc_arrow_1" class="accordion-arrow"></span> </div>
+      </div>
+      <div id="accordion-section-content-1" class="accordion-section-content" jg-slide-scroll="" jg-slide="innerAccordion.activeSection == 'swatch'">
+        <div class="row">
+        
+        <div class="section-left-content large-12 columns">  
+          <div class="panel_wrapper">
+              <div class="panel table rounded white no_pad">
+                <div class="title_heading">Swatch Configuration</div>
+                <div class="table_wrapper">
+                  <table class="data responsive">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>RegEx</th>                       
+                        <th class="actions">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="d in scg_swatch_config">
+                        <td class="number">{{$index + 1}}</td>
+                        <td class="swatch">{{d.RegEx}}</td>
+                  	<td class="actions">
+				<a class="icosolo icon_edit" href="#"></a> 
+				<a class="icosolo icon_delete delete" href="#"></a>
+			</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <br /><div class="button-container"> <a class="button" href="#">Add Event</a> </div>
+            </div>
+          </div>
+          
+  
+          
+          
+        </div>
+      </div>
+
+	<!-- Swatch setting ends here-->
+	<!-- Event setting starts here-->
+      <div id="accordion-section-5" class="accordion-section section-details-content" ng-class="{selected: innerAccordion.activeSection == 'event'}">
+        <div class="accordion-title star AccMenuTitleColor" ng-click="navigateAccordion('event')">
+          <div class="section-title">
+            <label> <span id="conf_vpn_controller">Event configuration</span> </label>
+          </div>
+          <span id="conf_vpn_acc_arrow_1" class="accordion-arrow"></span> </div>
+      </div>
+      <div id="accordion-section-content-1" class="accordion-section-content" jg-slide-scroll="" jg-slide="innerAccordion.activeSection == 'event'">
+        <div class="row">
+          <div class="section-left-content large-12 columns">  
+          <div class="panel_wrapper">
+              <div class="panel table rounded white no_pad">
+                <div class="title_heading">Event Configuration</div>
+                <div class="table_wrapper">
+                  <table class="data responsive">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>RegEx</th>
+                        <th>Severity</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="d in scg_event_config">
+                        <td class="number">{{$index + 1}}</td>
+                        <td class="regex">{{d.Regex}}</td>
+                        <td class="severity">{{d.Severity}}</td>
+                        <td class="actions">
+				<a class="icosolo icon_edit" href="#"></a> 
+				<a class="icosolo icon_delete delete" href="#"></a>
+			</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <br /><div class="button-container"> <a class="button" href="#">Add Event</a> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+	<!-- Event setting ends here-->
+	<!-- Log Alert setting starts here-->
+      <div id="accordion-section-6" class="accordion-section section-details-content" ng-class="{selected: innerAccordion.activeSection == 'log'}">
+        <div class="accordion-title star AccMenuTitleColor" ng-click="navigateAccordion('log')">
+          <div class="section-title">
+            <label> <span id="conf_vpn_controller">Log Alert configuration</span> </label>
+          </div>
+          <span id="conf_vpn_acc_arrow_1" class="accordion-arrow"></span> </div>
+      </div>
+      <div id="accordion-section-content-1" class="accordion-section-content" jg-slide-scroll="" jg-slide="innerAccordion.activeSection == 'log'">
+        <div class="row">
+          <div class="section-left-content large-12 columns">  
+          <div class="panel_wrapper">
+              <div class="panel table rounded white no_pad">
+                <div class="title_heading">Log Alert Configuration</div>
+                <div class="table_wrapper">
+                  <table class="data responsive">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>RegEx</th>
+                        <th>Type</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="d in scg_log_alert">
+                        <td class="number">{{$index + 1}}</td>
+                        <td class="regex">{{d.RegEx}}</td>
+                        <td class="type">{{d.Type}}</td>
+                        <td class="actions">
+				<a class="icosolo icon_edit" href="#"></a> 
+				<a class="icosolo icon_delete delete" href="#"></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <br /><div class="button-container"> <a class="button" href="#">Add Event</a> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+	<!-- Log Alert setting ends here-->
+	<!-- Ipload MIB setting starts here-->
+      <div id="accordion-section-7" class="accordion-section section-details-content" ng-class="{selected: innerAccordion.activeSection == 'mib'}">
+        <div class="accordion-title star AccMenuTitleColor" ng-click="navigateAccordion('mib')">
+          <div class="section-title">
+            <label> <span id="conf_vpn_controller">Upload MIB</span> </label>
+          </div>
+          <span id="conf_vpn_acc_arrow_1" class="accordion-arrow"></span> </div>
+      </div>
+      <div id="accordion-section-content-1" class="accordion-section-content" jg-slide-scroll="" jg-slide="innerAccordion.activeSection == 'mib'">
+        <div class="row">
+         <div class="section-left-content large-12 columns">  
+          <div class="panel_wrapper">
+              <div class="panel table rounded white no_pad">
+                <div class="title_heading">MIBs Configuration</div>
+                <div class="table_wrapper">
+                  <table class="data responsive">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>File Name</th>
+                        <th>Version</th>
+                        <th>File Size (Bytes)</th>
+                        <th>Created date</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="m in scg_user_mib">
+                        <td class="number">{{$index + 1}}</td>
+                        <td class="filename">{{m.filename}}</td>
+                        <td class="version">{{m.version}}</td>
+                        <td class="size">{{m.size}}</td>
+                        <td class="created">{{m.created_time}}</td>
+			<td class="actions">
+				<a class="icosolo icon_edit" href="#"></a> 
+				<a class="icosolo icon_delete delete" href="#"></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <br /><div class="button-container"> <a class="button" href="#">Add Event</a> </div>
+            </div>
+          </div>
+      </div>
+    </div>
+	<!-- Ipload MIB setting ends here-->
+
+      <div id="accordion-section-8" class="accordion-section section-details-content" ng-class="{selected: innerAccordion.activeSection == 'mib'}">
+        <div class="accordion-title star AccMenuTitleColor" ng-click="navigateAccordion('system')">
+          <div class="section-title">
+            <label> <span id="conf_vpn_controller">System Alert</span> </label>
+          </div>
+          <span id="conf_vpn_acc_arrow_1" class="accordion-arrow"></span> </div>
+      </div>
+      <div id="accordion-section-content-1" class="accordion-section-content" jg-slide-scroll="" jg-slide="innerAccordion.activeSection == 'system'">
+        <div class="row">
+         <div class="section-left-content large-12 columns">  
+          <div class="panel_wrapper">
+              <div class="panel table rounded white no_pad">
+                <div class="title_heading">System Alert Configuration</div>
+                <div class="table_wrapper">
+                  <table class="data responsive">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Alert Type</th>
+                        <th>Option</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="s in scg_system_alert">
+                        <td class="number">{{$index + 1}}</td>
+                        <td class="alerttype">{{s.Name}}</td>
+                        <td class="option">{{s.Status}}
+ 				<ul class="seggyc">
+      					<li ng-class="{current:s.Status == 'ON'}" ng-click="global_menu('5')"><a  href="javascript:void(0)">ON</a></li>
+      					<li ng-class="{current:s.Status == 'OFF'}" ng-click="global_menu('15')"><a  href="javascript:void(0)">OFF</a></li>
+				</ul>
+
+			</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <br />
+            </div>
+          </div>
+      </div>
+    </div>
+    
+  </div>
+</div>

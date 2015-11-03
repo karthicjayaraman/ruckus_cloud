@@ -1,0 +1,341 @@
+-- Date      : Mon Mar 07 16:12:27 CST 2011
+-- 
+-- Copyright (c) 2011 by Ruckus Wireless, Inc.
+-- All Rights Reserved
+--
+
+RUCKUS-SCG-EVENT-MIB	DEFINITIONS ::= BEGIN
+	IMPORTS
+		MacAddress, DisplayString
+			FROM SNMPv2-TC
+		OBJECT-GROUP, MODULE-COMPLIANCE
+			FROM SNMPv2-CONF
+		MODULE-IDENTITY, OBJECT-TYPE, Unsigned32, IpAddress, enterprises
+			FROM SNMPv2-SMI
+		ruckusEvents
+			FROM RUCKUS-ROOT-MIB;
+
+	ruckusSCGEventMIB	MODULE-IDENTITY
+    	LAST-UPDATED "201212071100Z"
+    	ORGANIZATION "Ruckus Wireless, Inc."
+    	CONTACT-INFO
+        	"Ruckus Wireless, Inc.
+
+	        350 West Java Dr.
+        	Sunnyvale, CA 94089
+	        USA
+
+	        T: +1 (650) 265-4200
+    	    F: +1 (408) 738-2065
+        	EMail: info@ruckuswireless.com
+	        Web: www.ruckuswireless.com"
+
+	DESCRIPTION		"Ruckus SCG event objects, including trap OID and trap payload."
+		::=  {  ruckusEvents  10  }
+
+	ruckusSCGEventTraps	OBJECT IDENTIFIER
+		::=  {  ruckusSCGEventMIB  1  }
+
+	ruckusSCGEventObjects	OBJECT IDENTIFIER
+		::=  {  ruckusSCGEventMIB  2  }
+		
+	ruckusSCGSystemMiscEventTrap NOTIFICATION-TYPE
+     OBJECTS     {ruckusSCGEventSeverity,ruckusSCGEventType,ruckusSCGEventDescription}
+     STATUS      current
+     DESCRIPTION
+        "Generic trap triggered by admin specified miscellaneous event. 
+         The event severity, event type, event description is enclosed."
+    ::= { ruckusSCGEventTraps 1 }
+    
+ ruckusSCGUpgradeSuccessTrap NOTIFICATION-TYPE
+     OBJECTS     {ruckusSCGEventSeverity,ruckusSCGEventType,ruckusSCGEventNodeName,ruckusSCGEventMacAddr,ruckusSCGEventNodeMgmtIp,ruckusSCGEventFirmwareVersion,ruckusSCGEventUpgradedFirmwareVersion}
+     STATUS      current
+     DESCRIPTION
+        "Trigger when there is a SCG upgrade success event.
+         The event severity, event type, node name, MAC address, management IP address, firmware version and upgraded firmware version are enclosed." 
+    ::= { ruckusSCGEventTraps 2 }
+    
+    
+ ruckusSCGUpgradeFailedTrap NOTIFICATION-TYPE 
+  OBJECTS     {ruckusSCGEventSeverity,ruckusSCGEventType,ruckusSCGEventFirmwareVersion,ruckusSCGEventUpgradedFirmwareVersion}
+  STATUS      current
+  DESCRIPTION
+        "Trigger when there is a SCG upgrade failed event.
+         The event severity, event type, firmware version and upgraded firmware version are enclosed." 
+    ::= { ruckusSCGEventTraps 3 }
+    
+ ruckusSCGRestartedTrap NOTIFICATION-TYPE
+  OBJECTS     {ruckusSCGEventSeverity,ruckusSCGEventType,ruckusSCGEventNodeName,ruckusSCGEventMacAddr,ruckusSCGEventNodeMgmtIp,ruckusSCGEventReason}
+  STATUS      current
+  DESCRIPTION
+        "Trigger when there is a SCG restarted event.
+         The event severity, event type, node name, MAC address, management IP address and restart reason are enclosed." 
+    ::= { ruckusSCGEventTraps 4 }
+
+ ruckusSCGShutdownTrap NOTIFICATION-TYPE
+  OBJECTS     {ruckusSCGEventSeverity,ruckusSCGEventType,ruckusSCGEventNodeName,ruckusSCGEventMacAddr,ruckusSCGEventNodeMgmtIp}
+  STATUS      current
+  DESCRIPTION
+        "Trigger when there is a SCG shutdown event.
+         The event severity, event type, node name, MAC address and management IP address are enclosed." 
+    ::= { ruckusSCGEventTraps 5 }
+    
+ 
+ ruckusSCGCPUThresholdExceeded NOTIFICATION-TYPE
+  OBJECTS     {ruckusSCGEventSeverity,ruckusSCGEventType,ruckusSCGEventNodeName,ruckusSCGEventMacAddr,ruckusSCGCPUPerc}
+  STATUS      current
+  DESCRIPTION
+        "Trigger when there is a SCG CPU threshold exceeded event.
+         The event severity, event type, node name, MAC address and CPU usage percent are enclosed." 
+    ::= { ruckusSCGEventTraps 6 }
+    
+    
+ ruckusSCGMemoryThresholdExceeded NOTIFICATION-TYPE
+  OBJECTS     {ruckusSCGEventSeverity,ruckusSCGEventType,ruckusSCGEventNodeName,ruckusSCGEventMacAddr,ruckusSCGMemoryPerc}
+  STATUS      current
+  DESCRIPTION
+        "Trigger when there is a SCG memory threshold exceeded event.
+         The event severity, event type, node name, MAC address and memory usage percent are enclosed." 
+    ::= { ruckusSCGEventTraps 7 }
+    
+ ruckusSCGDiskUsageThresholdExceeded NOTIFICATION-TYPE
+  OBJECTS     {ruckusSCGEventSeverity,ruckusSCGEventType,ruckusSCGEventNodeName,ruckusSCGEventMacAddr,ruckusSCGDiskPerc}
+  STATUS      current
+  DESCRIPTION
+        "Trigger when there is a SCG disk usage threshold exceeded event.
+         The event severity, event type, node name, MAC address and disk usage percent are enclosed." 
+    ::= { ruckusSCGEventTraps 8 }
+    
+ ruckusSCGAPMiscEventTrap NOTIFICATION-TYPE
+     OBJECTS     {ruckusSCGEventSeverity,ruckusSCGEventType,ruckusSCGEventAPName,ruckusSCGEventAPMacAddr,ruckusSCGEventAPIP,ruckusSCGEventAPLocation,ruckusSCGEventAPGPSCoordinates,ruckusSCGEventAPDescription,ruckusSCGEventDescription,ruckusSCGEventZoneName}
+     STATUS      current
+     DESCRIPTION
+        "Generic trap triggered by AP related miscellaneous event. 
+         The event severity, event type, AP name, AP MAC address, AP IP address, AP location, AP GPS coordinates, AP description, event description and zone name are enclosed."
+    ::= { ruckusSCGEventTraps 20 }
+ 
+ ruckusSCGAPJoinTrap NOTIFICATION-TYPE
+  OBJECTS     {ruckusSCGEventSeverity,ruckusSCGEventType,ruckusSCGEventAPName,ruckusSCGEventAPMacAddr,ruckusSCGEventAPIP,ruckusSCGEventAPLocation,ruckusSCGEventAPGPSCoordinates,ruckusSCGEventAPDescription,ruckusSCGEventZoneName,ruckusSCGEventReason}
+  STATUS      current
+  DESCRIPTION
+        "Trigger when there is an AP joined event.
+          The event severity, event type, AP name, AP MAC address, AP IP address, AP location, AP GPS coordinates, AP description, zone name and join reason are enclosed."
+    ::= { ruckusSCGEventTraps 21 }
+    
+ ruckusSCGAPDeletedTrap NOTIFICATION-TYPE
+  OBJECTS     {ruckusSCGEventSeverity,ruckusSCGEventType,ruckusSCGEventAPName,ruckusSCGEventAPMacAddr,ruckusSCGEventAPIP,ruckusSCGEventAPLocation,ruckusSCGEventAPGPSCoordinates,ruckusSCGEventAPDescription,ruckusSCGEventZoneName}
+  STATUS      current
+  DESCRIPTION
+        "Trigger when there is an AP deleted event.
+        The event severity, event type, AP name, AP MAC address, AP IP address, AP location, AP GPS coordinates, AP description and zone name are enclosed."
+     ::= { ruckusSCGEventTraps 22 }
+ 
+ ruckusSCGAPLostTrap NOTIFICATION-TYPE
+  OBJECTS     {ruckusSCGEventSeverity,ruckusSCGEventType,ruckusSCGEventAPName,ruckusSCGEventAPMacAddr,ruckusSCGEventAPIP,ruckusSCGEventAPLocation,ruckusSCGEventAPGPSCoordinates,ruckusSCGEventAPDescription,ruckusSCGEventZoneName}
+  STATUS      current
+  DESCRIPTION
+        "Trigger when there is an AP lost event.
+         The event severity, event type, AP name, AP MAC address, AP IP address, AP location, AP GPS coordinates, AP description and zone name are enclosed."
+     ::= { ruckusSCGEventTraps 23 }
+    
+ ruckusSCGAPLostHeartbeatTrap NOTIFICATION-TYPE
+  OBJECTS     {ruckusSCGEventSeverity,ruckusSCGEventType,ruckusSCGEventAPName,ruckusSCGEventAPMacAddr,ruckusSCGEventAPIP,ruckusSCGEventAPLocation,ruckusSCGEventAPGPSCoordinates,ruckusSCGEventAPDescription,ruckusSCGEventZoneName}
+  STATUS      current
+  DESCRIPTION
+        "Trigger when there is a SCG lost AP heartbeat event.
+        The event severity, event type, AP name, AP MAC address, AP IP address, AP location, AP GPS coordinates, AP description and zone name are enclosed."
+     ::= {ruckusSCGEventTraps 24 }
+    
+ ruckusSCGAPRebootTrap NOTIFICATION-TYPE
+  OBJECTS     {ruckusSCGEventSeverity,ruckusSCGEventType,ruckusSCGEventAPName,ruckusSCGEventAPMacAddr,ruckusSCGEventAPIP,ruckusSCGEventAPLocation,ruckusSCGEventAPGPSCoordinates,ruckusSCGEventAPDescription,ruckusSCGEventZoneName,ruckusSCGEventReason}
+  STATUS      current
+  DESCRIPTION
+        "Trigger when there is an AP reboot event.
+       The event severity, event type, AP name, AP MAC address, AP IP address, AP location, AP GPS coordinates, AP description, zone name and reboot reason are enclosed."
+     ::= {ruckusSCGEventTraps 25 }
+
+ ruckusSCGCriticalAPJoinTrap NOTIFICATION-TYPE
+  OBJECTS     {ruckusSCGEventSeverity,ruckusSCGEventType,ruckusSCGEventAPName,ruckusSCGEventAPMacAddr,ruckusSCGEventAPIP,ruckusSCGEventAPLocation,ruckusSCGEventAPGPSCoordinates,ruckusSCGEventAPDescription,ruckusSCGEventZoneName,ruckusSCGEventReason}
+  STATUS      current
+  DESCRIPTION
+        "Trigger when there is a critical AP join event.
+       The event severity, event type, AP name, AP MAC address, AP IP address, AP location, AP GPS coordinates, AP description, zone name and join reason are enclosed."
+     ::= {ruckusSCGEventTraps 26 }
+    
+ ruckusSCGCriticalAPLostTrap NOTIFICATION-TYPE
+  OBJECTS      {ruckusSCGEventSeverity,ruckusSCGEventType,ruckusSCGEventAPName,ruckusSCGEventAPMacAddr,ruckusSCGEventAPIP,ruckusSCGEventAPLocation,ruckusSCGEventAPGPSCoordinates,ruckusSCGEventAPDescription,ruckusSCGEventZoneName}
+  STATUS      current
+  DESCRIPTION
+        "Trigger when there is a critical AP lost event.
+       The event severity, event type, AP name, AP MAC address, AP IP address, AP location, AP GPS coordinates, AP description and zone name are enclosed."
+     ::= {ruckusSCGEventTraps 27 }
+
+ ruckusSCGClientMiscEventTrap NOTIFICATION-TYPE
+     OBJECTS     {ruckusSCGEventSeverity,ruckusSCGEventType,ruckusSCGEventClientMacAddr,ruckusSCGEventDescription}
+     STATUS      current
+     DESCRIPTION
+        "Generic trap triggered by specified client related miscellaneous event. 
+         The event severity, event type, client MAC address and event description are enclosed."
+    ::= { ruckusSCGEventTraps 100 }
+
+
+   ruckusSCGEventDescription OBJECT-TYPE
+	    SYNTAX      OCTET STRING
+	    MAX-ACCESS  accessible-for-notify
+	    STATUS      current
+	    DESCRIPTION
+             "The Event's Description"
+	    ::= { ruckusSCGEventObjects 1 }
+	  
+	 ruckusSCGEventSeverity OBJECT-TYPE
+	    SYNTAX      OCTET STRING
+	    MAX-ACCESS  accessible-for-notify
+	    STATUS      current
+	    DESCRIPTION
+	        "The Event's severity."
+	    ::= { ruckusSCGEventObjects 13 }
+	    
+	 ruckusSCGEventType OBJECT-TYPE
+	    SYNTAX      OCTET STRING
+	    MAX-ACCESS  accessible-for-notify
+	    STATUS      current
+	    DESCRIPTION
+	        "The Event's type."
+	    ::= { ruckusSCGEventObjects 14 }
+
+    ruckusSCGEventNodeMgmtIp OBJECT-TYPE
+	    SYNTAX      OCTET STRING
+	    MAX-ACCESS  accessible-for-notify
+	    STATUS      current
+	    DESCRIPTION
+	        "The SCG's  management IP address."
+	    ::= { ruckusSCGEventObjects 15 }
+    
+    ruckusSCGEventNodeName OBJECT-TYPE
+	    SYNTAX      OCTET STRING
+	    MAX-ACCESS  accessible-for-notify
+	    STATUS      current
+	    DESCRIPTION
+             "The SCG's  node name."
+	    ::= { ruckusSCGEventObjects 16 }
+       
+    ruckusSCGCPUPerc OBJECT-TYPE
+	    SYNTAX      OCTET STRING
+	    MAX-ACCESS  accessible-for-notify
+	    STATUS      current
+	    DESCRIPTION
+             "The SCG's  CPU usage percent."
+	    ::= { ruckusSCGEventObjects 17 }
+    
+    ruckusSCGMemoryPerc OBJECT-TYPE
+	    SYNTAX      OCTET STRING
+	    MAX-ACCESS  accessible-for-notify
+	    STATUS      current
+	    DESCRIPTION
+             "The SCG's memory usage percent."
+	    ::= { ruckusSCGEventObjects 18 }
+    
+    ruckusSCGDiskPerc OBJECT-TYPE
+	    SYNTAX      OCTET STRING
+	    MAX-ACCESS  accessible-for-notify
+	    STATUS      current
+	    DESCRIPTION
+             "The SCG's disk usage percent."
+	    ::= { ruckusSCGEventObjects 19 }
+    
+    ruckusSCGEventMacAddr OBJECT-TYPE
+	    SYNTAX      OCTET STRING
+	    MAX-ACCESS  accessible-for-notify
+	    STATUS      current
+	    DESCRIPTION
+             "The SCG's Mac address."
+	    ::= { ruckusSCGEventObjects 20 }
+    
+	ruckusSCGEventFirmwareVersion OBJECT-TYPE
+	    SYNTAX      OCTET STRING
+	    MAX-ACCESS  accessible-for-notify
+	    STATUS      current
+	    DESCRIPTION
+             "The SCG's firmware version."
+	    ::= { ruckusSCGEventObjects 21 }
+    
+	ruckusSCGEventUpgradedFirmwareVersion OBJECT-TYPE 
+	    SYNTAX      OCTET STRING
+	    MAX-ACCESS  accessible-for-notify
+	    STATUS      current
+	    DESCRIPTION
+	        "The SCG's upgrade firmware version."
+	    ::= { ruckusSCGEventObjects 22 }
+	    
+    ruckusSCGEventAPMacAddr OBJECT-TYPE
+	    SYNTAX      OCTET STRING
+	    MAX-ACCESS  accessible-for-notify
+	    STATUS      current
+	    DESCRIPTION
+	        "The AP's Mac address."
+	    ::= { ruckusSCGEventObjects 23 }
+    
+    ruckusSCGEventReason OBJECT-TYPE
+	    SYNTAX      OCTET STRING
+	    MAX-ACCESS  accessible-for-notify
+	    STATUS      current
+	    DESCRIPTION
+	        "The event's reason."
+	    ::= { ruckusSCGEventObjects 24 }
+	
+   ruckusSCGEventAPName OBJECT-TYPE
+	    SYNTAX      OCTET STRING
+	    MAX-ACCESS  accessible-for-notify
+	    STATUS      current
+	    DESCRIPTION
+	        "The AP's name."
+	    ::= { ruckusSCGEventObjects 25 }
+    
+  ruckusSCGEventAPIP OBJECT-TYPE
+	    SYNTAX      OCTET STRING
+	    MAX-ACCESS  accessible-for-notify
+	    STATUS      current
+	    DESCRIPTION
+	        "The AP's IP address."
+	    ::= { ruckusSCGEventObjects 26 }
+    
+   ruckusSCGEventAPLocation OBJECT-TYPE
+	    SYNTAX      OCTET STRING
+	    MAX-ACCESS  accessible-for-notify
+	    STATUS      current
+	    DESCRIPTION
+	        "The AP's location."
+	    ::= { ruckusSCGEventObjects 27 }
+    
+  ruckusSCGEventAPGPSCoordinates OBJECT-TYPE
+	    SYNTAX      OCTET STRING
+	    MAX-ACCESS  accessible-for-notify
+	    STATUS      current
+	    DESCRIPTION
+	        "The AP's GPS coordinates."
+	    ::= { ruckusSCGEventObjects 28 }
+	    
+   ruckusSCGEventAPDescription OBJECT-TYPE
+	    SYNTAX      OCTET STRING
+	    MAX-ACCESS  accessible-for-notify
+	    STATUS      current
+	    DESCRIPTION
+	        "The AP's description."
+	    ::= { ruckusSCGEventObjects 29 }
+    
+  ruckusSCGEventZoneName OBJECT-TYPE
+	    SYNTAX      OCTET STRING
+	    MAX-ACCESS  accessible-for-notify
+	    STATUS      current
+	    DESCRIPTION
+	        "The zone name."
+	    ::= { ruckusSCGEventObjects 30 }
+    
+    ruckusSCGEventClientMacAddr OBJECT-TYPE
+	    SYNTAX      OCTET STRING
+	    MAX-ACCESS  accessible-for-notify
+	    STATUS      current
+	    DESCRIPTION
+	        "The client's Mac address."
+	    ::= { ruckusSCGEventObjects 50 }    
+END
